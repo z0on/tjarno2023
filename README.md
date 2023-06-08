@@ -58,4 +58,4 @@ library(raster)
 library(fields)
 library(maps)
 ```
-If some packages are still missing, try *install.packages( "[package name]" )* command in Rstudio again. If ti fails, on a Mac, try opening Termial, saying "R" in command-line, and repeating the *install.packages* commands after you see the R prompt.
+If some packages are still missing, try *install.packages( "[package name]" )* command in Rstudio again. If it fails, on a Mac, try opening Termial, saying "R" in command-line, and repeating the *install.packages* commands after you see the R prompt. If that fails too, create a github issue here.
