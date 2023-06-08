@@ -36,7 +36,7 @@ install.packages("gradientForest", repos="http://R-Forge.R-project.org")
 ```
 If this one fails, chances are, you need to install **gfortran** first, FOR YOUR SYSTEM from here:
 https://gcc.gnu.org/wiki/GFortranBinaries or, for Mac, https://github.com/fxcoudert/gfortran-for-macOS/releases
-On a Mac you would also need to point your Rstudio compiler to the location **gfortran** is installed at, by creating/modifying the file *~/.R/Makevars*. The following spell in **Terminal** should hopefully work:
+On a Mac you would also need to point your Rstudio compiler to the location **gfortran** is installed at, by creating/modifying the file *~/.R/Makevars*. The following spell in **Terminal** should work:
 ```sh
 echo "FC = /usr/local/bin/gfortran
 F77 = /usr/local/gfortran
