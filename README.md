@@ -20,7 +20,7 @@ This may require additional installations outside R. Hopefully they will happen 
 Then:
 ```R
 # for multivariate analysis:
-install.packages(c("vegan","raster","fields","ggplot2","pheatmap"))
+install.packages(c("vegan","dplyr","raster","fields","ggplot2","pheatmap"))
 
 # for maps:
 install.packages(c("remotes","cowplot", "googleway", "ggrepel", "ggspatial","libwgeom", "sf", "rnaturalearth", "rnaturalearthdata"))
