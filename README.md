@@ -41,7 +41,7 @@ On a Mac you would also need to point your Rstudio compiler to the location **gf
 ```sh
 echo "FC = /usr/local/bin/gfortran
 F77 = /usr/local/gfortran
-FLIBS = -L/usr/local/gfortran/lib"  >>~/.R/Makevars
+FLIBS = -L/usr/local/gfortran/lib" >> ~/.R/Makevars
 ```
 To check if everything was intalled correctly, do this in Rstudio and see if all packages are loaded without errors.
 
