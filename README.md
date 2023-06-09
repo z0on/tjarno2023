@@ -10,7 +10,7 @@ These exercises are exclusively in R. If you are completely unfamiliar with R, c
 
 First, [install R and Rstudio](https://rstudio-education.github.io/hopr/starting.html), unless you have it already.
 
-The exercises will require quite a few R packages; so open the file **trarno2023_installations.R** in Rstudio and follow it. Some of the packages might require additional persuasion to install, so make sure to DO THIS BEFORE THE CLASS.
+The exercises will require quite a few R packages; so open the file *`trarno2023_installations.R`* in Rstudio and follow it. Some of the packages might require additional persuasion to install, so make sure to DO THIS BEFORE THE CLASS.
 
 First, install **devtools**. 
 ```R
@@ -63,13 +63,9 @@ If some packages are still missing, try *install.packages( "[package name]" )* c
 ###
 This dataset is from the seascape genomics project led by Kristina Black, who put together many of the analyses I am going to show you. It contains 250 samples of the stony coral *Agaricia agaricites* collected from 63 sites in Florida. 
 ![Keys seascape](FL_seascape_agaricia.png)
-The samples were sequenced with 2b-RAD, genotyped [de-novo](https://github.com/z0on/2bRAD_denovo) and genetic distances between samples were computed in [ANGSD](http://www.popgen.dk/angsd/index.php/ANGSD) as identity-by-state (IBS) based on single-read resampling. The AD@MIXTURE proportions were computed by [ngsAdmix](http://www.popgen.dk/software/index.php/NgsAdmix).
+The samples were sequenced with 2b-RAD, genotyped [de-novo](https://github.com/z0on/2bRAD_denovo) and genetic distances between samples were computed in [ANGSD](http://www.popgen.dk/angsd/index.php/ANGSD) as identity-by-state (IBS) based on single-read resampling. The ADMIXTURE clusters were delineated using [ngsAdmix](http://www.popgen.dk/software/index.php/NgsAdmix).
 
->We recommend PCAngsd for ADMIXTURE analysis these days. 
->The method also computes SNP covariance matrix that 
->can be converted into correlations and used instead of the IBS matrix.
->We prefer IBS since it is the most assumption-free approach to computing genetic distances, 
->robust to variation in coverage across samples.
+>We recommend *PCAngsd* for ADMIXTURE analysis these days. That method also computes SNP covariance matrix that can be converted into correlations and used instead of the IBS matrix. We prefer IBS since it is the most assumption-free approach to computing genetic distances, robust to variation in coverage across samples.
 
 There are also environmental data for these same sites, as well as for the whole region. Some of these data come from satellite measurements (temperature, salinity, turbidity, chlorophyll), other data - from [SERC Water Quality Monitoring Network](http://serc.fiu.edu/wqmnetwork/).
 ###
@@ -78,4 +74,8 @@ The script *`Agaricia_tjarno2023.R`* shows how to:
 - plot isolation-by-distance graph to see if there are multiple clines, signifying distinct genetic clusters
 - explore genetic structure using principal coordinate analysis (PCoA, function *capscale*), plot ADMIXTURE bar chart using package *tess3R*, and color the PCoA ordination plots according to ADMIXTURE cluster assignments.
 - project ADMIXTURE clusters on the map (package *tess3r*) to see where cluster representatives are predominantly found
-- 
+- perform a gradient forest analysis of genotype-environment associations (package *gradientForest*)
+- predict and map areas of divergent adaptation across the whole region.
+
+After going through *`Agaricia_tjarno2023.R`*, you will be asked to investigate adaptation *within* each of the three distinct *A.agaricites* lineages and compare them, all on your own. The script has some scrap code in the end that will be helpful. 
+
