@@ -91,6 +91,9 @@ plot(gendist~xydist,col=rgb(0,0,0,0.05),pch=19,cex=0.5)
 ord.all=capscale(as.dist(IBS)~1)
 plot(ord.all,scaling=1)
 
+# eigenvectors (% of variation explained)
+plot(100*ord.all$CA$eig/sum(ord.all$CA$eig)) 
+
 # ----- plotting admixture bar plot (tess3Q functions)
 
 # my.colors <- c("tomato", "lightblue", "wheat","olivedrab", "cyan3","hotpink","gold","orange")
