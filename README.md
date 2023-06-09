@@ -87,7 +87,7 @@ After going through *`Agaricia_tjarno2023.R`*, you will be asked to investigate 
 
 Unlike corals, *I. baltica* has a very narrow dispersal range (it is a marsupial brooding its young in a pouch, believe it or not). Because of this, it shows strong isolation-by-distance, and makes the most spectacular ADMIXTURE-on-map plot (let's make one!). But does it also adapt genetically to the variation in conditions across the Baltic sea? Gradient forest to the rescue! We only have a few environmental variables for this creature (temperature and salinity in summer and in winter, so we can have those plus their difference - the yearly temperature range), but it should be enough for starters.
 
-> Hint 1: The GF analysis must be conditional on the strong genetic structure due to isolation-by-distance. This structure is likely to be captured by the fist few principal coordinates.
+> Hint 1: The GF analysis must be conditional on the strong genetic structure due to isolation-by-distance. This structure would be captured by the first few (3-4) principal coordinates.
 
 >Hint 2: Remove SYL population for GF analysis, they are just too different from the rest (this population is outside the Baltic). There are also genotyping replicates that will look like clones in the *hclust* tree - you know what to do with them.
 
