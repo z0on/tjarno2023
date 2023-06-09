@@ -94,7 +94,7 @@ Unlike corals, *I. baltica* has a very narrow dispersal range (it is a marsupial
 Data for *I. baltica*:
 - `bams600`: list of input file names in the order in which they appear in all other data tables. Use them as sample names (just remove the useless *.bam* from them using R function *sub*). Sampling location is the first three letters of the sample name.
 - `idotea600.ibsMat`: IBS (genetic distances) matrix
-- `Idotea environment 171005.csv`: longitude, latitude, temperature and salinity in winter and summer
+- `Idotea environment 171005.csv`: longitude, latitude, temperature and salinity in winter and summer, for each sampling location (note: NOT for each sample!)
 - `Baltic_polygon.txt`: table containing longitude and latitude of points defining the Baltic polygon (for plotting ADMIXTURE clusters on map)
 - `idotea600_k7.qopt`: ADMIXTURE result with K=7 clusters.
 - `idotea_scrapCode.R` : some potentially helpful bits of code, for example for more advanced PCoA visualization
