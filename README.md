@@ -92,8 +92,8 @@ Unlike corals, *I. baltica* has very small dispersal range (it is a marsupial ca
 >Hint 2: Remove SYL population for GF analysis, they are just too different from the rest (this population is outside the Baltic). There are also genotyping replicates that will look like clones in the *hclust* tree - you know what to do with them.
 
 Data for *I. baltica*:
-- `bams5`: list of input file names in the order in which they appear in all other data tables. Use them as sample names (just remove the useless *.real.recal.bam* from them using R function *sub*)
-- `idotea5.ibsMat`: IBS (genetic distances) matrix
+- `bams600`: list of input file names in the order in which they appear in all other data tables. Use them as sample names (just remove the useless *.real.recal.bam* from them using R function *sub*). Sampling location is the first three letters of the sample name.
+- `idotea600.ibsMat`: IBS (genetic distances) matrix
 - `Idotea environment 171005.csv`: longitude, latitude, temperature and salinity in winter and summer
 - `Baltic_polygon.txt`: table containing longitude and latitude of points defining the Baltic polygon (for plotting ADMIXTURE clusters on map)
 - `idotea600_k7.qopt`: ADMIXTURE result with K=7 clusters.
