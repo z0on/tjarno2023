@@ -51,7 +51,7 @@ dimnames(IBS)=list(samples,samples)
 row.names(admix)=row.names(latlon)=row.names(env)=samples
 
 # raster of variables, to predict adaptation
-ll=load("Rasters/rasters_XY.RData")
+ll=load("rasters_XY.RData")
 ll
 # "rasters" "XY"
 
