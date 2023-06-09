@@ -63,7 +63,7 @@ If some packages are still missing, try *install.packages( "[package name]" )* c
 ###
 This dataset is from the seascape genomics project led by Kristina Black, who put together many of the analyses I am going to show you. It contains 250 samples of the stony coral *Agaricia agaricites* collected from 63 sites in Florida. 
 ###
-The samples were sequenced with 2b-RAD, genotyped [de-novo](https://github.com/z0on/2bRAD_denovo) and genetic disstances between samples were computed in [ANGSD](http://www.popgen.dk/angsd/index.php/ANGSD) as identity-by-state (IBS) based on single-read resampling. The AD@MIXTURE proportions were computed by [ngsAdmix](http://www.popgen.dk/software/index.php/NgsAdmix).
+The samples were sequenced with 2b-RAD, genotyped [de-novo](https://github.com/z0on/2bRAD_denovo) and genetic distances between samples were computed in [ANGSD](http://www.popgen.dk/angsd/index.php/ANGSD) as identity-by-state (IBS) based on single-read resampling. The AD@MIXTURE proportions were computed by [ngsAdmix](http://www.popgen.dk/software/index.php/NgsAdmix).
 
 >We recommend PCAngsd for ADMIXTURE analysis these days. 
 >The method also computes SNP covariance matrix that 
@@ -77,5 +77,5 @@ The script *`Agaricia_tjarno2023.R`* shows how to:
 - explore the data and remove problematic samples (functions *hclust*, *pheatmap*, *cutree*)
 - plot isolation-by-distance graph to see if there are multiple clines, signifying distinct genetic clusters
 - explore genetic structure using principal coordinate analysis (PCoA, function *capscale*), plot ADMIXTURE bar chart using package *tess3R*, and color the PCoA ordination plots according to ADMIXTURE cluster assignments.
-- project ADMIXTURE clusters on the map (package *trss3r*) to see where cluster representatives are predominantly found
+- project ADMIXTURE clusters on the map (package *tess3r*) to see where cluster representatives are predominantly found
 - 
