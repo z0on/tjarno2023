@@ -59,7 +59,7 @@ library(maps)
 ```
 If some packages are still missing, try *install.packages( "[package name]" )* command in Rstudio again. If it fails, on a Mac, try opening Termial, saying "R" in command-line, and repeating the *install.packages* commands after you see the R prompt. If that fails too, create a github issue here.
 
-## Agaricia agaricites in the FL Keys
+## Seascape genomics of *Agaricia agaricites* in the FL Keys
 ###
 This dataset is from the seascape genomics project led by Kristina Black, who put together many of the analyses I am going to show you. It contains 250 samples of the stony coral *Agaricia agaricites* collected from 63 sites in Florida. 
 ###
