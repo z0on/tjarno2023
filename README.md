@@ -85,7 +85,7 @@ After going through *`Agaricia_tjarno2023.R`*, you will be asked to investigate 
 
 ![*Idotea baltica*](isopoda_idotea_balthica_01-10-15_1.jpg)
 
-Unlike corals, *I. baltica* has very small dispersal range (it is a marsupial carrying its young in the pouch, believe it or not). Because of this, it shows strong isolation-by-distance, and makes the most spectacular ADMIXTURE-on-map plot (let's make one!). But does it also adapt genetically to the variation in conditions across the Baltic sea? Gradient forest to the rescue! We only have a few environmental variables for this creature (temperature and salinity in summer and in winter, so we can have those plus their difference - the yearly temperature range), but it should be enough for the start.
+Unlike corals, *I. baltica* has a very narrow dispersal range (it is a marsupial brooding its young in a pouch, believe it or not). Because of this, it shows strong isolation-by-distance, and makes the most spectacular ADMIXTURE-on-map plot (let's make one!). But does it also adapt genetically to the variation in conditions across the Baltic sea? Gradient forest to the rescue! We only have a few environmental variables for this creature (temperature and salinity in summer and in winter, so we can have those plus their difference - the yearly temperature range), but it should be enough for the start.
 
 > Hint 1: The GF analysis must be conditional on the strong genetic structure due to isolation-by-distance. This structure is likely to be captured by the fist few principal coordinates.
 
