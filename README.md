@@ -4,6 +4,12 @@
 #### - mapping divergent adaptation
 ####  
 
+## Readings
+- `death00_classification_regression_trees.pdf` : great intro into regression trees, for ecological data
+- `ellis_gradient_forest.pdf` : dense but very comprehensive outline of the gradient forest approach
+- `fitzpatrick15_genomic_vulnerability.pdf` : introduces the idea that by comparing adaptation maps for present-day and for the future we can learn where our creatures will be in trouble the most
+- `bay_songbird_science.pdf` : one of the best examples so far of putting all the above to work.
+
 ## Installing stuff
 
 These exercises are exclusively in R. If you are completely unfamiliar with R, consider working through chapters 1-7 here: http://swcarpentry.github.io/r-novice-gapminder/
