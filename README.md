@@ -95,7 +95,7 @@ Unlike corals, *I. baltica* has a very narrow dispersal range (it is a marsupial
 
 The environmental dataset used here (`meta` for sampling locations, `meta.xt` for individual samples, and `rasters` for the whole Baltic Sea) were donwloaded from [Copernicus](https://data.marine.copernicus.eu/products?q=baltic). I took temperature and salinity from [Baltic Sea Physics Analysis](https://data.marine.copernicus.eu/product/BALTICSEA_ANALYSISFORECAST_PHY_003_006/description) and the rest from [Biogeochemistry](https://data.marine.copernicus.eu/product/BALTICSEA_ANALYSISFORECAST_BGC_003_007/description). The donloaded `.nc` files (monthly averages for two years, Jan 16, 2021 - Jan 16, 2023) were grid-aligned, averaged, and transformed into dataframes using script `baltic.variables.R`. I retained only the variables showing reasonable variation acoss Baltic, and log2-transformed chlorophyll and salinity measures. The doc with additional info on the variables is `baltic.chemVars.names.docx`.
 
-> Hint: The GF analysis must be conditional on the strong genetic structure due to isolation-by-distance. This structure would be reasonably accounted for by the first principal coordinate.
+> Hint: The GF analysis must be conditional on the strong genetic structure due to isolation-by-distance. This structure should be reasonably accounted for by the first two principal coordinates.
 
 Data for *I. baltica*:
 - `idotea_37pops_rasters_2023_clean.RData`: a bundle of almost everything you need - objects bams, ibs, meta, meta.xt, admix for intial analysis and rasters, XY for projecting gradient forest model. The files for the initial analysis (584 samples, 37 populations) are already aligned and free of clonal duplicates, so go straight into PCoA analysis.
