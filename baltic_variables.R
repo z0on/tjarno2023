@@ -165,6 +165,7 @@ for(pop in 1:nrow(meta)){
 new.meta=data.frame(cbind(meta[,1:4],new.meta))
 plot(meta[,c(6,5)])
 points(new.meta[,6:5],col="red")
+map(coasts,add = T, interior = F)
 
 eelgrass.meta=new.meta
 save(eelgrass.meta,file="eelgrass_metadata.RData")
