@@ -91,14 +91,14 @@ After going through *`Agaricia_tjarno2023.R`*, you will be asked to investigate 
 
 ![*Idotea baltica*](isopoda_idotea_balthica_01-10-15_1.jpg)
 
-Unlike corals, *I. baltica* has a very narrow dispersal range (it is a marsupial brooding its young in a pouch, believe it or not). Because of this, it shows strong isolation-by-distance, and makes the most spectacular ADMIXTURE-on-map plot (let's make one!). But does it also adapt genetically to the variation in conditions across the Baltic sea? Gradient forest to the rescue! We only have a few environmental variables for this creature (temperature and salinity in summer and in winter, so we can have those plus their difference - the yearly temperature range), but it should be enough for starters.
+Unlike corals, *I. baltica* has a very narrow dispersal range (it is a marsupial brooding its young in a pouch, believe it or not). Because of this, it shows strong isolation-by-distance, and makes the most spectacular ADMIXTURE-on-map plot (let's make one!). But does it also adapt genetically to the variation in conditions across the Baltic sea? Gradient forest to the rescue! 
 
-> Hint 1: The GF analysis must be conditional on the strong genetic structure due to isolation-by-distance. This structure would be captured by the first few (3-4) principal coordinates.
+The environmental dataset used here (`meta` for sampling locations, `meta.xt` for individual samples, and `rasters` for the whole Baltic Sea) were donwloaded from [Copernicus](https://data.marine.copernicus.eu/products?q=baltic). I took temperature and salinity from [Baltic Sea Physics Analysis](https://data.marine.copernicus.eu/product/BALTICSEA_ANALYSISFORECAST_PHY_003_006/description) and the rest from [Biogeochemistry](https://data.marine.copernicus.eu/product/BALTICSEA_ANALYSISFORECAST_BGC_003_007/description). The donloaded `.nc` files (monthly averages for two years, Jan 16, 2021 - Jan 16, 2023) were grid-aligned, averaged, and transformed into dataframes using script `baltic.variables.R`. I retained only the variables showing reasonable variation acoss Baltic, and log2-transformed chlorophyll and salinity measures. The doc with additional info on the variables is `baltic.chemVars.names.docx`.
 
->Hint 2: Remove SYL population for GF analysis, they are just too different from the rest (this population is outside the Baltic). There are also genotyping replicates that will look like clones in the *hclust* tree - you know what to do with them.
+> Hint: The GF analysis must be conditional on the strong genetic structure due to isolation-by-distance. This structure would be captured by the first few (3-4) principal coordinates.
 
 Data for *I. baltica*:
-- `idotea_37pops_rasters_2023_clean.RData`: a bundle of almost everything you need - objects bams, ibs, meta, admix for intial analysis and rasters, XY for projecting gradient forest model. The files for the initial analysis (584 samples, 37 populations) are already aligned and free of clonal duplicates, so go straight into PCoA analysis.
+- `idotea_37pops_rasters_2023_clean.RData`: a bundle of almost everything you need - objects bams, ibs, meta, meta.xt, admix for intial analysis and rasters, XY for projecting gradient forest model. The files for the initial analysis (584 samples, 37 populations) are already aligned and free of clonal duplicates, so go straight into PCoA analysis.
 - `Baltic_polygon.txt`: table containing longitude and latitude of points defining the Baltic polygon (for plotting ADMIXTURE clusters on map)
 - `idotea_scrapCode.R` : some potentially helpful bits of code, for example for more advanced PCoA visualization
 
