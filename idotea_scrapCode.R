@@ -35,4 +35,7 @@ plot(scores,pch=16,col=cols,asp=1)
 ordispider(scores,groups=pop,col=popcols,label=F)
 ordiellipse(scores,groups=pop,label=T,draw="polygon",col=popcols,cex=0.4)
 
+#-------------- good colors for 7-color palette
+
+my.colors <- c("tomato", "lightblue", "wheat","olivedrab", "cyan3","hotpink","gold","orange")
 
