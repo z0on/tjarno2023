@@ -16,7 +16,7 @@ row.names(env.xt)=samples
 
 library(RColorBrewer)
 popcols = brewer.pal(11, "RdYlBu") 
-popcols = colorRampPalette(cols)(length(unique(pop)))
+popcols = colorRampPalette(popcols)(length(unique(pop)))
 pp=data.frame(cbind(pop=unique(pop),cols=popcols))
 pp2=merge(popstab,pp,by="pop",all.X=T)
 cols=pp2$cols
