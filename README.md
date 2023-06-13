@@ -99,7 +99,9 @@ The environmental dataset used here (`meta` for sampling locations, `meta.xt` fo
 > Hint: The GF analysis must be conditional on the strong genetic structure due to isolation-by-distance. This structure should be reasonably accounted for by the first two principal coordinates.
 
 Data for *I. baltica*:
-- `idotea_37pops_rasters_2023_clean.RData`: a bundle of almost everything you need - objects `bams`, `ibs`, `meta` (metadata for 37 sampling locations), `meta.xt` (for 584 individual samples), `admix` for intial analysis and `rasters`, `XY` for projecting gradient forest model. The files for the initial analysis are already aligned and free of clonal duplicates, so go straight into PCoA analysis.
+- `idotea_37pops_env2014_clean.RData`: a bundle of everything you need for PCoA, admixture, and initial gradient forest analysis: objects `bams`, `ibs`, `meta` (metadata for 37 sampling locations),  `meta.xt` (for 584 individual samples), `admix`. The files are already aligned and free of clonal duplicates, so go straight into PCoA.
+- `baltic.rasters.XY.2014.RData`: data over 2013-2015 (`rasters`, `XY`) for projecting gradient forest model.
+- `baltic.rasters.XY.2000.RData`: data over 1999-2001 (`rasters`, `XY`) for projecting gradient forest model.
 - `Baltic_polygon.txt`: table containing longitude and latitude of points defining the Baltic polygon (for plotting ADMIXTURE clusters on map)
 - `idotea_scrapCode.R` : some potentially helpful bits of code, for example for more advanced PCoA visualization
 
