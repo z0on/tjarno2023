@@ -4,6 +4,7 @@
 #### - mapping divergent adaptation
 ####  
 
+## [Lecture powerpoint](tjarno2023.popStructure.pptx)
 ## Readings
 - [short and sweet intro into decision trees and random forest](https://towardsdatascience.com/understanding-random-forest-58381e0602d2)
 - `death00_classification_regression_trees.pdf` : great intro into regression trees, for ecological data
