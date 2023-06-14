@@ -9,7 +9,7 @@
 - [short and sweet intro into decision trees and random forest](https://towardsdatascience.com/understanding-random-forest-58381e0602d2)
 - `death00_classification_regression_trees.pdf` : great intro into regression trees, for ecological data
 - `ellis_gradient_forest.pdf` : dense but very comprehensive outline of the gradient forest approach
-- `fitzpatrick15_genomic_vulnerability.pdf` : introduces the idea of comparing current and future adaptation maps, to learn where our species will be the most in trouble
+- `fitzpatrick15_genomic_vulnerability.pdf` : introduces the idea of "genomic vulnerability": comparing current and future adaptation maps to see where our species will be in trouble.
 - `bay_songbird_science.pdf` : one of the best examples so far of putting all the above to work.
 
 ## Installing stuff
