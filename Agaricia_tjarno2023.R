@@ -51,7 +51,7 @@ dimnames(IBS)=list(samples,samples)
 row.names(admix)=row.names(latlon)=row.names(env)=samples
 
 # raster of variables, to predict adaptation
-ll=load("rasters_XY.RData")
+ll=load("Rasters/rasters_XY.RData")
 ll
 # "rasters" "XY"
 
@@ -59,8 +59,8 @@ ll
 
 hc=hclust(as.dist(IBS),"ave")
 plot(hc,cex=0.5) # clustering of samples by IBS (great to detect clones or closely related individuals)
-# there are a few "low-hanging" groups - clones of closely related individuals 
-# ideally, to make sure that two samples are clones, their distance must be compared to the distance
+# there are a few "low-hanging" groups of closely related individuals 
+# Note: to make sure that two samples are clones, their distance must be compared to the distance
 # between genotyping replicates (the same sample genotyped twice)
 abline(h=0.05,col="red") # this seems like a reasonable  "low-hang" threshold for calling related groups
 pheatmap::pheatmap(1-IBS)
@@ -203,8 +203,8 @@ plot(gf,plot.type="C",show.species=F,common.scale=T,
 #dev.off()
 
 # projecting turnover curves to raster grid
-nvars=length(importance(gf)) # to keep all variables for prediction
-# nvars=6 # to choose top 6 variables
+#nvars=length(importance(gf)) # to keep all variables for prediction
+nvars=6 # to choose top 6 variables
 important=names(importance(gf))[1:nvars]
 raster.vars=colnames(rasters)[colnames(rasters) %in% important]
 # actual prediction line:
@@ -220,35 +220,36 @@ for (v in raster.vars){
 # and setting up color scheme to visualize first three PCs
 # (cannibalized from Ellis' Gradient Forest vignette)
 pc <- prcomp(trans.grid[, raster.vars])
-
+plot(pc$sdev)
+pcs2show=c(1,2,3)
 # color flippage flags - change between -1 and 1 to possibly improve color representation
 flip.pc1=(1)
 flip.pc2=(1)
 flip.pc3=(1)
 
-pc1 <- flip.pc1*pc$x[, 1]
-pc2 <- flip.pc2*pc$x[, 2]
-pc3 <- flip.pc3*pc$x[, 3]
+pc1 <- flip.pc1*pc$x[, pcs2show[1]]
+pc2 <- flip.pc2*pc$x[, pcs2show[2]]
+pc3 <- flip.pc3*pc$x[, pcs2show[3]]
 b <- pc1 - pc2
 g <- -pc1
 r <- pc3 + pc2 - pc1
 r <- (r - min(r))/(max(r) - min(r)) * 255
 g <- (g - min(g))/(max(g) - min(g)) * 255
 b <- (b - min(b))/(max(b) - min(b)) * 255
-nvs <- dim(pc$rotation)[1]
+nvs <- dim(pc$rotation)[pcs2show[1]]
 lv <- length(raster.vars)
 vind <- rownames(pc$rotation) %in% raster.vars
 scal <- 40
-xrng <- range(pc$x[, 1], pc$rotation[, 1]/scal) * 1.1
-yrng <- range(pc$x[, 2], pc$rotation[, 2]/scal) * 1.1
+xrng <- range(pc$x[, 1], pc$rotation[, pcs2show[1]]/scal) * 1.1
+yrng <- range(pc$x[, 2], pc$rotation[, pcs2show[2]]/scal) * 1.1
 
 # plotting PCA of the predicted adaptive communities
 # (should look like a cloud-ish shape, not a long stick!)
-plot((pc$x[, 1:2]), xlim = xrng, ylim = yrng, pch = ".", cex = 4, col = rgb(r, g, b, max = 255), asp = 1)
-points(pc$rotation[!vind, 1:2]/scal, pch = "+")
-arrows(rep(0, lv), rep(0, lv), pc$rotation[raster.vars, 1]/scal, pc$rotation[raster.vars, 2]/scal, length = 0.0625)
+plot((pc$x[, pcs2show[1:2]]), xlim = xrng, ylim = yrng, pch = ".", cex = 4, col = rgb(r, g, b, max = 255), asp = 1)
+points(pc$rotation[!vind, pcs2show[1:2]]/scal, pch = "+")
+arrows(rep(0, lv), rep(0, lv), pc$rotation[raster.vars, pcs2show[1]]/scal, pc$rotation[raster.vars, pcs2show[2]]/scal, length = 0.0625)
 jit <- 0.0015
-text(pc$rotation[raster.vars, 1]/scal + jit * sign(pc$rotation[raster.vars, 1]), pc$rotation[raster.vars, 2]/scal + jit * sign(pc$rotation[raster.vars, 2]), labels = raster.vars,cex=0.5)
+text(pc$rotation[raster.vars, 1]/scal + jit * sign(pc$rotation[raster.vars, pcs2show[1]]), pc$rotation[raster.vars, pcs2show[2]]/scal + jit * sign(pc$rotation[raster.vars, pcs2show[2]]), labels = raster.vars,cex=0.7)
 man.colors=rgb(r, g, b, max = 255)
 
 # map of adaptation gradients
