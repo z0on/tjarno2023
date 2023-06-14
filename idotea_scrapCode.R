@@ -1,16 +1,4 @@
 
-#------- making the table of environmental conditions *for each sample*
-
-# sample names
-samples=dimnames(ibs)[[1]]
-# extracting first three characters of the sample name (code for sampling location)
-pop=substr(samples,1,3)
-popstab=data.frame(cbind(pop=pop))
-env=read.csv("Idotea environment 171005.csv")
-env.xt=merge(popstab,env,by="pop",all.X=T)
-row.names(env.xt)=samples
-# the resulting table is ordered like IBS and ADMIXTURE data and has sample names as row names
-
 # ------------ setting up colors for samples and sampling locations (base R, RColorBrewer)
 #              (uses popstab from the code bit above)
 
@@ -38,4 +26,5 @@ ordiellipse(scores,groups=pop,label=T,draw="polygon",col=popcols,cex=0.4)
 #-------------- good colors for 7-color palette
 
 my.colors <- c("tomato", "lightblue", "wheat","olivedrab", "cyan3","hotpink","gold","orange")
+
 
