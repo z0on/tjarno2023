@@ -1,7 +1,6 @@
 
 library(ggplot2)
-
-?raster::calc
+library(psych) #for pairs.panels
 
 # function to read and average (across times) one specified variable, while lowering resolution
 rasterMeanDf=function(ncfile,varname,lowres.factor=4,align.with=0,func="mean"){
@@ -109,8 +108,8 @@ ncread=function(filename,lowres.factor=4,align.with=10,func="mean"){
 
 #-------------------------
 
-wcfile="~/Dropbox/waterChem_2000_cmems_mod_bal_bgc_my_P1M-m_1686581987299.nc"
-tsfile="~/Dropbox/t_sal_2000_cmems_mod_bal_phy_my_P1M-m_1686581523152.nc"
+wcfile="~/Dropbox/waterChem_2014_cmems_mod_bal_bgc_my_P1M-m_1686582346606.nc"
+tsfile="~/Dropbox/t_sal_2014_cmems_mod_bal_phy_my_P1M-m_1686582643523.nc"
 
 ref <- brick(tsfile,varname="so")
 waterChem=ncread(wcfile,lowres.factor=4,align.with = ref[[1]],func="mean")
@@ -137,23 +136,26 @@ balt.raster=merge(waterChem,ts,by=c("lon","lat"))
 balt.raster.sd=merge(waterChem.sd,ts.sd,by=c("lon","lat"))
 balt.raster.lsd=merge(waterChem.lsd,ts.lsd,by=c("lon","lat"))
 dim(balt.raster)
+dim(balt.raster.sd)
+dim(balt.raster.lsd)
 
-logthese=c(5,7,8,10,11)
+logthese=c(5,7,8,10,11,13)
 for (i in logthese){
   balt.raster[,i]=log(balt.raster[,i]+1,2)
-  names(balt.raster)[i]=paste("log.",names(balt.raster)[i],sep="")
+  names(balt.raster)[i]=paste(names(balt.raster)[i],".log",sep="")
 }
 balt.raster.sd[,logthese]=balt.raster.lsd[,logthese]
-sdnames=paste(names(balt.raster.sd[,-c(1,2)]),".sd",sep="")
-sdnames[logthese]=paste(names(balt.raster.sd[,logthese]),".sdlog",sep="")
-names(balt.raster.sd)[-c(1,2)]=sdnames
+names(balt.raster)
+#pairs.panels(balt.raster.sd[,-c(1:2)],pch=".")
+sdnames=paste(names(balt.raster),".sd",sep="")
+names(balt.raster.sd)[-c(1,2)]=sdnames[-c(1,2)]
 
 goods=c(1,2,4,5,6,7,8,9,10,11,12,13)
 balt.raster=balt.raster[,goods]
 balt.raster.sd=balt.raster.sd[,goods]
 
-#pairs(balt.raster[,3:ncol(balt.raster)],pch=".")
-#pairs(balt.raster.sd[,3:ncol(balt.raster.sd)],pch=".")
+pairs.panels(balt.raster[,3:ncol(balt.raster)],pch=".")
+pairs.panels(balt.raster.sd[,3:ncol(balt.raster.sd)],pch=".")
 
 
 # # plotting variables one by one, looking for ones showing reasonable variation
@@ -178,12 +180,12 @@ head(XY)
 rasters=rasters[,-c(1:2)]
 
 names(rasters)
-# [1] "o2"         "log.chl"    "zsd"        "log.no3"    "log.po4"    "ph"        
-# [7] "log.nh4"    "log.nppv"   "T"          "Sal"        "o2.sd"      "chl.sd"    
-# [13] "zsd.sd"     "chl.sdlog"  "po4.sd"     "no3.sdlog"  "po4.sdlog"  "nppv.sd"   
-# [19] "nh4.sdlog"  "nppv.sdlog" 
+# [1] "o2"          "chl.log"     "zsd"         "no3.log"     "po4.log"    
+# [6] "ph"          "nh4.log"     "nppv.log"    "T"           "Sal.log"    
+# [11] "o2.sd"       "chl.log.sd"  "zsd.sd"      "no3.log.sd"  "po4.log.sd" 
+# [16] "ph.sd"       "nh4.log.sd"  "nppv.log.sd" "T.sd"        "Sal.log.sd" 
 
-save(rasters,XY,file="baltic.rasters.XY.2000.RData")
+save(rasters,XY,file="baltic.rasters.XY.2014.RData")
 
 # goodvars=names(rasters)
 # save(goodvars,logthese,file="baltic_environmentalVariableNames.RData")
@@ -192,7 +194,9 @@ getwd()
 #--------- finding values for the actual sampling locations: idotea
 
 setwd('~/Dropbox/mega2019/idotea_2019') # change this to where your scp'd files are
-ll=load("idotea_37pops_rasters_2023_clean.RData")
+ll=load("idotea_37pops_env2014_clean.RData")
+pairs.panels(meta[,4:13]) # means
+names(meta)
 head(meta)
 load("baltic.rasters.XY.2014.RData")
 head(XY)
