@@ -203,8 +203,8 @@ plot(gf,plot.type="C",show.species=F,common.scale=T,
 #dev.off()
 
 # projecting turnover curves to raster grid
-#nvars=length(importance(gf)) # to keep all variables for prediction
-nvars=6 # to choose top 6 variables
+nvars=length(importance(gf)) # to keep all variables for prediction
+#nvars=6 # to choose top 6 variables
 important=names(importance(gf))[1:nvars]
 raster.vars=colnames(rasters)[colnames(rasters) %in% important]
 # actual prediction line:
