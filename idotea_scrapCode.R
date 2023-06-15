@@ -3,6 +3,8 @@
 #              (uses popstab from the code bit above)
 
 library(RColorBrewer)
+pop=meta$pop
+popstab=data.frame(cbind(pop=pop))
 popcols = brewer.pal(11, "RdYlBu") 
 popcols = colorRampPalette(popcols)(length(unique(pop)))
 pp=data.frame(cbind(pop=unique(pop),cols=popcols))
