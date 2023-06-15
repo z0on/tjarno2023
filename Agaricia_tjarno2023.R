@@ -271,6 +271,7 @@ choices=which(admix[,pop]>=0.75)
 env.p=env[choices,]
 IBS.p=IBS[choices,choices]
 latlon.p=latlon[choices,]
+admix.p=admix[choices,]
 
 # ---- modification to ordination command when analyzing individual lineages,
 #      to DISREGARD admixture with other lineages as a force shaping genetic distances
